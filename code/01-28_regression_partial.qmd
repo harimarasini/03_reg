@@ -38,10 +38,6 @@ Because both the response variable (i.e., corn yield) and explanatory variable (
 
 Anytime we have this input x output **numerical** relationship, a few different patterns can emerge.
 
-```{r input output relationships figure, echo=F}
-knitr::include_graphics("../data/ior.png")
-```
-
 Talk about each of these patterns.
 
 # 1) Setup  
@@ -205,7 +201,7 @@ Few observations, nothing alarming.
 ## c) Model summary
 
 ```{r mod1 ANOVA}
-summary(mod1_int)
+summary(mod1_int)   
 ```
 
 Intercept highly significant!
@@ -245,6 +241,7 @@ nd <- nd %>%
                                    nd,
                                    re.form = NA    # not to include random effect
                                    ))
+
 # Creating function to bootstrap
 predict.fun <- function(mod) {
   predict(mod, 
@@ -268,7 +265,7 @@ mod1_int_boots
 nd <- nd %>%
   bind_cols(mod1_int_boots)
 
-nd
+print(nd)
 
 # Final plot
 
